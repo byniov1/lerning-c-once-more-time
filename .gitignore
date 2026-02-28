@@ -1,0 +1,44 @@
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+
+## Visual Studio files
+.vs/
+*.user
+*.userosscache
+*.sln.doccache
+
+## Visual Studio Code
+.vscode/
+# Note: Keep launch.json if you want shared debug settings
+#!.vscode/launch.json
+
+## NuGet Packages
+*.nupkg
+# The packages folder can be restored via 'dotnet restore'
+**/packages/*
+!**/packages/build/
+
+## User-specific files & Secrets
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.doccache
+appsettings.Development.json
+UserSecrets/
+
+## Test results
+[Tt]est[Rr]esults/
+*.trx
+*.coverage
+
+## Operating System files
+.DS_Store
+Thumbs.db
