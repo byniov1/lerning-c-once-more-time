@@ -38,9 +38,16 @@ Console.WriteLine("My number =  " + myNumber);
 // string myBoolString = "true";
 // bool myBool = Convert.ToBoolean(myBoolString);
 
+//
+// var s = "11";
+// var i = 11;
+// var x = i + s;
+// Console.WriteLine(x);
 
-var s = "11";
-var i = 11;
-var x = i + s;
-Console.WriteLine(x);
+string s1 = "This is a string with a double coolon \" backslahs \\ new line \n colon ' slash / and a \t tab with a coloncolon: ";
+Console.WriteLine(s1);
+
+
+
+
 
