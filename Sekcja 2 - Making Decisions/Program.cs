@@ -28,35 +28,57 @@
 //     Console.WriteLine("Go to kindergarden");
 // }
 
-int month = 5;
-string monthName;
+// int month = 5;
+// string monthName;
+//
+// if (month == 1)
+// {
+//     monthName = "January";
+// }
+// else if (month == 2)
+//     monthName = "February";
+// else if (month == 3)
+//     monthName = "March";
+// else
+//     monthName = "Unknown";
+//
+//
+// switch (month)
+// {
+//     case 1:
+//         monthName = "January";
+//         break;
+//     case 2:
+//         monthName = "February";
+//         break;
+//     default:
+//         monthName = "Unknown";
+//         break;
+// }
+//
+//
+//
+// string anwser = Console.ReadLine();
+// Console.WriteLine(anwser.Trim().ToLower());
 
-if (month == 1)
+
+Console.WriteLine("Give me a number:");
+string inputString = Console.ReadLine();
+int num1;
+
+bool isNumber = int.TryParse(inputString, out num1);
+
+if (!isNumber)
 {
-    monthName = "January";
+    Console.WriteLine("Input must be an integer");
 }
-else if (month == 2)
-    monthName = "February";
-else if (month == 3)
-    monthName = "March";
 else
-    monthName = "Unknown";
-
-
-switch (month)
 {
-    case 1:
-        monthName = "January";
-        break;
-    case 2:
-        monthName = "February";
-        break;
-    default:
-        monthName = "Unknown";
-        break;
+    num1++;
+    Console.WriteLine("Entred number +1 is " + num1);
 }
+    
 
-
-
-string anwser = Console.ReadLine();
-Console.WriteLine(anwser.Trim().ToLower());
+Random random = new Random();
+int randomNumber = random.Next(1, 10);
+Console.WriteLine($"Random Integer: {randomNumber}");
