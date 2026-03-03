@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        Car audi = new Car("Audi", "A5");
+        Car bmw = new Car("BMW", "i7");
     }
 }
