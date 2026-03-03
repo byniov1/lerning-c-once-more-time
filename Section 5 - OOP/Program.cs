@@ -18,6 +18,14 @@ class Program
         Customer customer = new Customer("John Doe");*/
         
         //3
+        Car audi = new Car("Audi", "A4", false);
+        audi.Drive();
         
+        Customer defaultCustomer = new  Customer();
+        defaultCustomer.PrintDetails();
+        Console.WriteLine("I'm now setting info about customer");
+        // defaultCustomer.SetDetails("John Doe", "John Doe", "Some address");
+        defaultCustomer.SetDetails("John Doe", "John Doe");
+        defaultCustomer.PrintDetails();
     }
 }

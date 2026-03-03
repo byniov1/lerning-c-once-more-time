@@ -8,7 +8,14 @@ public class Customer
     
     
     //Custom Constructor
-    public Customer(string name, string address, string contactNumber)
+    // public Customer(string name, string address, string contactNumber)
+    // {
+    //     Name = name;
+    //     Address = address;
+    //     ContactNumber = contactNumber;
+    // }
+    
+    public Customer(string name, string address = "NA", string contactNumber = "NA")
     {
         Name = name;
         Address = address;
@@ -28,4 +35,16 @@ public class Customer
         ContactNumber = "UNKNOWN";
     }
     
+    
+    public void SetDetails(string name, string address, string contactNumber = "NA")
+    {
+        Name = name;
+        Address = address;
+        ContactNumber = contactNumber;
+    }
+
+    public void PrintDetails()
+    {
+        Console.WriteLine($"Name: {Name} , Address: {Address}, ContactNumber: {ContactNumber}");
+    }
 }
