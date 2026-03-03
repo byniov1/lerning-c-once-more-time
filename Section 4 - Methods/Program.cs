@@ -54,6 +54,8 @@ class Program
         // temperature.Max();
         Console.WriteLine($"Min temperature was: {temperature.Min()} \n Max temperature was: {temperature.Max()} ");
         Console.WriteLine($"Min temperature was: {MinTemperature(temperature)}");
+
+        Console.WriteLine($"Most common condition is {MostCommonCodition(weatherConditions)}");
         
     }
 
@@ -84,6 +86,31 @@ class Program
         }
         
         return min;
+    }
+
+    static string MostCommonCodition(string[] conditions)
+    {
+        int count = 0;
+        string mostCommon = conditions[0];
+
+        for (int i = 0; i < conditions.Length; i++)
+        {
+            int tempCount = 0;
+            for (int j = 0; j < conditions.Length; j++)
+            {
+                if (conditions[i] == conditions[j])
+                    tempCount++;
+            }
+
+            if (tempCount > count)
+            {
+                count = tempCount;
+                mostCommon = conditions[i];
+            }
+            
+        }
+
+        return mostCommon;
     }
 }
 
