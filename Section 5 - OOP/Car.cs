@@ -75,6 +75,7 @@ namespace Section_5___OOP;
 
 public class Car
 {
+    public static int NumberOfCars = 0;
     private string _brand = "";
     
     public string Brand {
@@ -100,11 +101,17 @@ public class Car
 
     public Car(string brand, string model, bool isLuxury)
     {
+        NumberOfCars++;
         Model = model;
         Brand = brand;
         IsLuxury  = isLuxury;
         
         Console.WriteLine($"An {Brand} model {Model} has been created");
+    }
+
+    public Car()
+    {
+        NumberOfCars++;
     }
 
     

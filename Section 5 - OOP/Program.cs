@@ -18,7 +18,7 @@ class Program
         Customer customer = new Customer("John Doe");*/
         
         //3
-        Car audi = new Car("Audi", "A4", false);
+        /*Car audi = new Car("Audi", "A4", false);
         audi.Drive();
         
         Customer defaultCustomer = new  Customer();
@@ -26,6 +26,37 @@ class Program
         Console.WriteLine("I'm now setting info about customer");
         // defaultCustomer.SetDetails("John Doe", "John Doe", "Some address");
         defaultCustomer.SetDetails("John Doe", "John Doe");
-        defaultCustomer.PrintDetails();
+        defaultCustomer.PrintDetails();*/
+        
+        //4 Named Parameters
+        /*
+        static int AddNum(int firstNum, int secondNum)
+        {
+            return firstNum + secondNum;
+        }
+          
+        Console.WriteLine(AddNum(15, 25));
+        Console.WriteLine(AddNum(firstNum: 25, 25));*/
+        
+        //5
+        /*Customer.DoSomethingCustomerStuff();*/
+        
+        //6
+        /*Customer customer1 = new Customer();
+        Customer customer2 = new Customer();
+        Customer customer3 = new Customer();
+        Customer customer4 = new Customer();
+        customer4.GetDetalis();
+
+        customer4.Password = "dfkjhsajkh8234yu91$";
+        customer4.GetDetalis();*/
+
+        Rectangle rectangle1 = new Rectangle("Red");
+        Rectangle rectangle2 = new Rectangle("Blue");
+
+        rectangle2.DisplayDetails();
+
     }
+
+
 }
