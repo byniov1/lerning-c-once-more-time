@@ -51,10 +51,15 @@ class Program
         customer4.Password = "dfkjhsajkh8234yu91$";
         customer4.GetDetalis();*/
 
-        Rectangle rectangle1 = new Rectangle("Red");
+        
+        //7
+        /*Rectangle rectangle1 = new Rectangle("Red");
         Rectangle rectangle2 = new Rectangle("Blue");
 
-        rectangle2.DisplayDetails();
+        rectangle2.DisplayDetails();*/
+        
+        //8
+        //Quiz
 
     }
 
