@@ -1,4 +1,6 @@
-﻿namespace Section_5___OOP;
+﻿using System.Security.AccessControl;
+
+namespace Section_5___OOP;
 
 class Program
 {
@@ -60,7 +62,17 @@ class Program
         
         //8
         //Quiz
+        Question[] questions = new Question[]
+        {
+            new Question(
+                "What is the capital of Germany?",  // Question Text
+                new string[] {"Paris", "Berlin", "London", "Madrid"}, // Answers Array
+                1 // CorrectAnswerIndex
+            )
+        };
 
+        Quiz quiz = new Quiz(questions);
+        quiz.DisplayQuestion(questions[0]);
     }
 
 
