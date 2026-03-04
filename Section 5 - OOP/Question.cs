@@ -15,7 +15,7 @@ public class Question
         CorrectAnwserIndex = correctAnwserIndex;
     }
 
-    public bool IsCorrect(int choice)
+    public bool IsCorrectAnswer(int choice)
     {
         return CorrectAnwserIndex == choice;
     }
