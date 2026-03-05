@@ -235,6 +235,53 @@ class Program
     //Dictionaries
     public static void Main(String[] args)
     {
+        //key - value;
+        Dictionary<int, string> employees = new Dictionary<int, string>();
+        employees.Add(101, "Bob");
+        employees.Add(102, "Jill");
+        employees.Add(103, "Jane");
+        employees.Add(104, "Kuba");
+        employees.Add(105, "Tomek");
+        //To się wywali bo powtarza się key -> więc pytanie jak ładniej dodawać elementy do Dictionary
+        // employees.Add(105, "Tomek");
+        
+        //Można tak xD ale czy to takie eleganckie nie wiem ale jest to sps
+        if (!employees.ContainsKey(101))
+            employees.Add(105, "Tomek");
+        
+        //i można to tak rozwinąć - ale to workaround
+        /*
+        int counter = 101;
+        while (employees.ContainsKey(counter))
+        {
+            counter++;
+        }
+        employees.Add(counter, "Kuba");*/
+        
+        //Powinno się to robić tak
+        bool added = employees.TryAdd(102, "Tomek");
+        if (!added)
+            Console.WriteLine("Couldn't add employee with id 102");
+        
+        
+        
+        employees.Add(106, "Mateusz");
+        
+        string name = employees[101];
+        Console.WriteLine(name);
+        
+        employees[102] = "Jolie Smith";
+        employees.Remove(101);
 
+        //Tak też zadziała xD
+        // foreach (var employee in employees)
+        // {
+        //     Console.WriteLine(employee);
+        // }
+        
+        foreach (KeyValuePair<int, string> employee in employees)
+        {
+            Console.WriteLine($"ID: {employee.Key}, Name: {employee.Value}");
+        }
     }
 }
