@@ -214,7 +214,7 @@ class Program
     }*/
 
     //Nullables
-    public static void Main(String[] args)
+    /*public static void Main(String[] args)
     {
         int? age = null;
         // int? age = 20;
@@ -230,6 +230,11 @@ class Program
             int? sum1 = age + 20;
             Console.WriteLine("Age is not speciffied" + sum1);
         }
+    }*/
+
+    //Dictionaries
+    public static void Main(String[] args)
+    {
+
     }
-    
 }
