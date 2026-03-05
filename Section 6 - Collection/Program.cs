@@ -37,6 +37,7 @@ class Program
         //2
         //Można to było uprościć ale bajka nie wiedzialem jak dorwać się do "color"
         colors.RemoveAll(color => IsGivenColor(color, "Yellow"));
+        // var filteredColors = colors.Where(c => c != "Yellow").ToList();                                      !!!! HINT NA PRZYSZŁOŚĆ !!!! 
         DisplayColors(colors);
     }
 
