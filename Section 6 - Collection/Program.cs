@@ -214,9 +214,22 @@ class Program
     }*/
 
     //Nullables
-    public static void main(String[] args)
+    public static void Main(String[] args)
     {
-        
+        int? age = null;
+        // int? age = 20;
+
+        if (age.HasValue)
+        {
+            Console.WriteLine($"{age} years old");
+            Console.WriteLine($"{age.Value} years old");
+        }
+        else
+        {
+            // int sum0 = age.Value + 20; //to się wywali jak age bedzie null bo chemy value z null
+            int? sum1 = age + 20;
+            Console.WriteLine("Age is not speciffied" + sum1);
+        }
     }
     
 }
