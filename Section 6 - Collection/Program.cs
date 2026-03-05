@@ -168,8 +168,7 @@ class Program
     }*/
     
     //4 DEPRECATED - HashTables ==> Dictionaries
-
-    class Student
+    /*class Student
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -212,5 +211,12 @@ class Program
         }
         
         studentsHashTable.Add(std1.ID, std1);
+    }*/
+
+    //Nullables
+    public static void main(String[] args)
+    {
+        
     }
+    
 }
