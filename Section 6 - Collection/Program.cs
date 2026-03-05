@@ -120,8 +120,11 @@ class Program
         return number > 10;
     }*/
 
-    public static void Main(string[] args)
+    
+    //4 DEPRECATED - ArrayList
+    /*public static void Main(string[] args)
     {
+        //Array list !!!! DEPRACATED !!!!
         ArrayList myArrayList = new ArrayList();
         ArrayList myArrayList2 = new ArrayList(100);
         
@@ -162,5 +165,52 @@ class Program
 
         Console.WriteLine($"Sum of number: {sum}");
         
+    }*/
+    
+    //4 DEPRECATED - HashTables ==> Dictionaries
+
+    class Student
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public float GPA { get; set; }
+
+        public Student(int id, string name, float gpa)
+        {
+            ID = id;
+            Name = name;
+            GPA = gpa;
+        }
+    }
+    public static void Main(string[] args)
+    {
+        Hashtable studentsHashTable = new Hashtable();
+        
+        studentsHashTable.Add(1, new Student(1, "John", 100));
+        studentsHashTable.Add(2, new Student(2, "Jason", 200));
+        studentsHashTable.Add(3, new Student(3, "Clara", 300));
+        studentsHashTable.Add(4, new Student(4, "Steve", 400));
+        
+        
+        Student std1 = new Student(5, "John", 200);
+
+        Student? storedStudent1 = (Student)studentsHashTable[1];
+
+        Console.WriteLine($"Student ID: {storedStudent1.ID}, Name: {storedStudent1.Name},  GPA: {storedStudent1.GPA}");
+
+        // foreach (DictionaryEntry student in studentsHashTable)
+        // {
+        //     Student tempStudent = (Student)student.Value;
+        //     Console.WriteLine($"Student ID: {tempStudent.ID}, Name: {tempStudent.Name},  GPA: {tempStudent.GPA}");
+        // }
+        
+        //Jeżeli są Values to są także Keys
+        foreach (Student student in studentsHashTable.Values)
+        {
+            // Student tempStudent = (Student)student.Value;
+            Console.WriteLine($"Student ID: {student.ID}, Name: {student.Name},  GPA: {student.GPA}");
+        }
+        
+        studentsHashTable.Add(std1.ID, std1);
     }
 }
