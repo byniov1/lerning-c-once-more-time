@@ -233,7 +233,8 @@ class Program
     }*/
 
     //Dictionaries
-    public static void Main(String[] args)
+    //5
+    /*public static void Main(String[] args)
     {
         //key - value;
         Dictionary<int, string> employees = new Dictionary<int, string>();
@@ -256,7 +257,7 @@ class Program
         {
             counter++;
         }
-        employees.Add(counter, "Kuba");*/
+        employees.Add(counter, "Kuba");#1#
         
         //Powinno się to robić tak
         bool added = employees.TryAdd(102, "Tomek");
@@ -273,7 +274,7 @@ class Program
         employees[102] = "Jolie Smith";
         employees.Remove(101);
 
-        //Tak też zadziała xD
+        //Tak też zadziała xD -> Do keys i values też się można dostać tylko wtedy trzeba napisać employee.Value xD
         // foreach (var employee in employees)
         // {
         //     Console.WriteLine(employee);
@@ -282,6 +283,51 @@ class Program
         foreach (KeyValuePair<int, string> employee in employees)
         {
             Console.WriteLine($"ID: {employee.Key}, Name: {employee.Value}");
+        }
+    }*/
+    
+    //6
+    /*class Employee(string name, int age, int salary)
+    {
+        public string Name { get; set; } = name;
+        public int Age { get; set; } = age;
+        public int Salary { get; set; } = salary;
+    }
+    public static void Main(String[] args)
+    {
+        //key - value;
+        Dictionary<int, Employee> employees = new Dictionary<int, Employee>();
+        employees.Add(1, new Employee("John Doe", 35, 100000));
+        employees.Add(2, new Employee("John Foe", 45, 2000));
+        employees.Add(3, new Employee("John Aoe", 25, 505000));
+        employees.Add(4, new Employee("John Roe", 75, 50000));
+        employees.Add(5, new Employee("John Yoe", 25, 200));
+
+
+        foreach (var employee in employees)
+        {
+            Console.WriteLine($"Id: {employee.Key} named: {employee.Value.Name} earns: { employee.Value.Salary} and is {employee.Value.Age} years old");
+        }
+        
+    }*/
+    
+    public static void Main(String[] args)
+    {
+        var codes = new Dictionary<string, string>
+        {
+            ["NY"] = "New York",
+            ["CA"] = "California",
+            ["TX"] =  "Texas",
+        };
+
+        
+        if (codes.TryGetValue("NY", out string state))
+            Console.WriteLine("NY: " + state);
+
+
+        foreach (var code in codes)
+        {
+            Console.WriteLine($"{code.Key}: {code.Value}");
         }
     }
 }
