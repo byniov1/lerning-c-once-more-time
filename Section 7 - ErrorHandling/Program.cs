@@ -56,37 +56,59 @@ class Program
         Console.WriteLine($"Your age is {age}");
         return age;
     }*/
+
+    //3
+    // static void Main(string[] args)
+    // {
+    //     int result = 0;
+    //     Debug.WriteLine("Main method is running");
+    //     try
+    //     {
+    //         int num1 = 0;
+    //         int num2 = 2;
+    //         result = num2 / num1;
+    //     }
+    //     catch (DivideByZeroException ex)
+    //     {
+    //         Console.WriteLine("Don't divide by zero: " + ex.Message);
+    //     }
+    //     catch (FormatException ex)
+    //     {
+    //         Console.WriteLine("You must provide number: " + ex.Message);
+    //     }
+    //     catch (OverflowException ex)
+    //     {
+    //         Console.WriteLine("Number to high: "  + ex.Message);
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         Console.WriteLine($"Error: {ex.Message}");
+    //     }
+    //     finally
+    //     {
+    //         Console.WriteLine("This always executes. Result is " + result);
+    //     }
+    // }
     
     static void Main(string[] args)
     {
+        try
+        {
+           LevelOne();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("The exception caught in Main " + ex.Message);
+        }
+    }
 
-        int result = 0;
-    Debug.WriteLine("Main method is running");
-    try
+    private static void LevelOne()
     {
-        int num1 = 0;
-        int num2 = 2;
-        result = num2 / num1;
+        LevelTwo();
     }
-    catch (DivideByZeroException ex)
+
+    private static void LevelTwo()
     {
-        Console.WriteLine("Don't divide by zero: " + ex.Message);
-    }
-    catch (FormatException ex)
-    {
-        Console.WriteLine("You must provide number: " + ex.Message);
-    }
-    catch (OverflowException ex)
-    {
-        Console.WriteLine("Number to high: "  + ex.Message);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Error: {ex.Message}");
-    }
-    finally
-    {
-        Console.WriteLine("This always executes");
-    }
+        throw new Exception("Something went wrong");
     }
 }
