@@ -95,6 +95,7 @@ class DerivedClass : BaseClass
 
 
 //3
+/*
 class Program
 {
 
@@ -135,5 +136,44 @@ class Cat : Animal
     public void MakeSound()
     {
         Console.WriteLine("Cat is miauing");
+    }
+}
+*/
+
+class Program
+{
+    private static void Main(string[] args)
+    {
+        Employee e1 = new Employee("John Doe", 10);
+        e1.DisplayPersonInformation();
+    }
+}
+
+
+public class Person
+{
+    private string Name { get; set; }
+    private int  Age { get; set; }
+    
+    public Person(string name, int age)
+    {
+        Name = name;
+        Age = age;
+        Console.WriteLine("Person constructor called");
+    }
+
+    public void DisplayPersonInformation()
+    {
+        Console.WriteLine($"Name: {Name}, Age: {Age}");
+    }
+}
+
+public class Employee : Person
+{
+    public Employee(string name, int age) : base(name, age)
+    {
+        //Ciekawe jak coś takiego zrobić żeby działało 
+        name = $"Employee {name}";
+        Console.WriteLine("Employee constructor called");
     }
 }
