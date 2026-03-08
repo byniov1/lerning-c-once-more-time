@@ -12,12 +12,12 @@ public class Dog : IAnimal
 {
     public void MakeSound()
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Wof wof");
     }
 
     public void Eat(string food)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Dog ate" + food);
     }
 }
 
@@ -26,5 +26,7 @@ class Program
     static void Main(string[] args)
     {
         Dog dog = new Dog();
+        dog.MakeSound();
+        dog.Eat("Treat");
     }
 }
