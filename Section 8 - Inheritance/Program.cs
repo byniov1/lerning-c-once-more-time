@@ -1,4 +1,6 @@
-﻿namespace Section_8___Inheritance;
+﻿using Microsoft.VisualBasic.CompilerServices;
+
+namespace Section_8___Inheritance;
 
 //1
 /*class Program
@@ -140,14 +142,24 @@ class Cat : Animal
 }
 */
 
-class Program
+//5
+/*class Program
 {
     private static void Main(string[] args)
     {
-        Employee e1 = new Employee("John Doe", 10);
-        e1.DisplayPersonInformation();
+        // Employee e1 = new Employee("John Doe", 10, "Sales Rep", 1324);
+        // e1.DisplayEmployeeInf();
+
+        Manager carl = new Manager("carl", 45, "Manager", 1233, 5);
+        carl.DisplayManagerInfo();
+        carl.BecomeOlder(5);
+        carl.DisplayManagerInfo();
+
+        
+        // carl.Equals()
     }
 }
+
 
 
 public class Person
@@ -166,14 +178,53 @@ public class Person
     {
         Console.WriteLine($"Name: {Name}, Age: {Age}");
     }
+
+    
+    /// <summary>Makes our object older.</summary>
+    /// <param name="years">The parameter thaht indicates the amount of years the object should age.</param>
+    /// <returns>>Returns the new age after aging/becoming older .</returns>
+    public int BecomeOlder(int years)
+    {
+        return Age += years;
+    }
 }
 
+// public sealed class Employee : Person
 public class Employee : Person
 {
-    public Employee(string name, int age) : base(name, age)
+    public string  JobTitle { get; set; }
+    public int EmployeeId { get; set; }
+    
+    public Employee(string name, int age, string jobTitle, int employeeId) : base(name, age)
     {
         //Ciekawe jak coś takiego zrobić żeby działało 
         name = $"Employee {name}";
-        Console.WriteLine("Employee constructor called");
+
+        JobTitle = jobTitle;
+        EmployeeId = employeeId;
+        Console.WriteLine("Employe e constructor called");
+    }
+
+    public void DisplayEmployeeInf()
+    {
+        DisplayPersonInformation();
+        Console.WriteLine("JobTitle: " + JobTitle + " Employee ID: " + EmployeeId);
     }
 }
+
+
+public class Manager: Employee
+{
+    public int TeamSize { get; set; }
+    public Manager(string name, int age, string jobTitle, int employeeId, int teamSize) : base(name, age, jobTitle, employeeId)
+    {
+        TeamSize = teamSize;
+        Console.WriteLine("Manager  constructor called");
+    }
+
+    public void DisplayManagerInfo()
+    {
+        DisplayEmployeeInf();
+        Console.WriteLine("Team size: " + TeamSize);
+    }
+}*/
