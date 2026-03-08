@@ -228,3 +228,68 @@ public class Manager: Employee
         Console.WriteLine("Team size: " + TeamSize);
     }
 }*/
+
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        SavingsAccount mySavings = new SavingsAccount("123456789", 500.00m);
+        mySavings.Deposit(200.00m);
+        mySavings.Withdraw(100.00m);
+        mySavings.Withdraw(700.00m); // Should show insufficient funds message
+    }
+}
+
+
+public class Account
+{
+    public string AccountNumber { get; private set; }
+    public decimal Balance { get; private set; }
+
+    public Account(string accountNumber, decimal balance)
+    {
+        AccountNumber = accountNumber;
+        Balance = balance;
+    }
+
+    public void Deposit(decimal amount)
+    {
+        
+    Balance += amount;
+    Console.WriteLine($"Deposited {amount:C}. New balance is {Balance:C} .");
+    }
+    
+    public virtual void Withdraw(decimal amount)
+    {
+        if (amount <= Balance)
+        {
+            Balance -= amount; 
+            Console.WriteLine($"Withdrew {amount:C}. New balance is {Balance:C}.");
+        }
+        else
+        {
+            Console.WriteLine("Insufficient funds.");
+        }
+    }
+
+
+}
+
+public sealed class SavingsAccount: Account
+{
+    public SavingsAccount(string accountNumber, decimal balance) : base(accountNumber, balance){}
+
+    public override void Withdraw(decimal amount)
+    {
+        if (amount <= Balance)
+        {
+            base.Withdraw(amount);
+        }
+        else
+        {
+            Console.WriteLine("Insufficient funds.");
+        }
+    }
+}
+
+
