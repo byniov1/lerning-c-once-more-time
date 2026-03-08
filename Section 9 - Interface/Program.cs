@@ -5,7 +5,7 @@ public interface IAnimal
     void MakeSound();
     void Eat(string food);
     // string Eat(string food);
-
+    // string Eat(string food);
 }
 
 public class Dog : IAnimal
