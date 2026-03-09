@@ -260,7 +260,7 @@ public class Program
 */
 
 //Dependency Injection -> Patrz na przykład wcześniej jak to wyglądało 
-public class Hammer
+/*public class Hammer
 {
     public void Use()
     {
@@ -276,9 +276,16 @@ public class Saw
     }
 }
 
-public class Builder
+public interface IToolUser
 {
-    private Hammer _hammer;
+    void SetHammer(Hammer hammer);
+    void SetSaw(Saw saw);
+}
+
+/*public class Builder
+{
+    // Constructor Dependency Injection
+    /*private Hammer _hammer;
     private Saw _saw;
 
     // Constructor Dependency Injection
@@ -286,23 +293,117 @@ public class Builder
     {
         _hammer = hammer;
         _saw = saw;
-    }
+    }#2#
+
+    //Setter DI
+    /*public Hammer Hammer { get; set; }
+    public Saw Saw { get; set; }
+    
+    public void BuildHouse()
+    {
+        Hammer.Use();
+        Saw.Use();
+        Console.WriteLine("House Built");
+    }#2#
+}#1#
+
+public class Builder: IToolUser
+{
+    private Hammer _hammer;
+    private Saw _saw;
 
     public void BuildHouse()
     {
         _hammer.Use();
         _saw.Use();
-        Console.WriteLine("House Built");
+        Console.WriteLine("House build");
+    }
+    
+    public void SetHammer(Hammer hammer)
+    {
+        _hammer = hammer;
+    }
+
+    public void SetSaw(Saw saw)
+    {
+        _saw = saw;
     }
 }
+
 
 public class Program
 {
     public static void Main()
     {
-        Hammer hammer = new Hammer();
+        // Constructor - Dependency Injection
+        /*Hammer hammer = new Hammer();
         Saw saw = new Saw();
         Builder builder = new Builder(hammer, saw);
         builder.BuildHouse();
+        #1#
+        
+        //Setter - DI
+        /*
+         Hammer hammer = new Hammer();
+        Saw saw = new Saw();
+        Builder builder = new Builder();
+        
+        builder.Hammer = hammer;
+        builder.Saw = saw;
+        
+        builder.BuildHouse();#1#
+        
+        
+        //Interface DI
+        Hammer hammer = new Hammer();
+        Saw saw = new Saw();
+        Builder builder = new Builder();
+
+        builder.SetHammer(hammer);
+        builder.SetSaw(saw);
+        
+        builder.BuildHouse();
+        
+    }
+}*/
+
+
+//Multiple inherintance
+public interface IPrintable
+{
+    protected void Print()
+    {
+        Console.WriteLine($"{this.GetType().Name}");
+    }
+}
+
+public interface IScannable
+{
+    void Scan();
+}
+
+public class MultiFunctionPrinter : IPrintable, IScannable
+{
+    public void Print()
+    {
+        Console.WriteLine("Print");
+    }
+
+    public void Scan()
+    {
+        Console.WriteLine("Scan");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        MultiFunctionPrinter printer = new MultiFunctionPrinter();
+        printer.Print();
+        printer.Scan();
+        
+        IPrintable printable = new MultiFunctionPrinter();
+        printable.Print();
     }
 }
