@@ -371,10 +371,7 @@ public class Program
 //Multiple inherintance
 public interface IPrintable
 {
-    protected void Print()
-    {
-        Console.WriteLine($"{this.GetType().Name}");
-    }
+    void Print();
 }
 
 public interface IScannable
@@ -402,8 +399,5 @@ class Program
         MultiFunctionPrinter printer = new MultiFunctionPrinter();
         printer.Print();
         printer.Scan();
-        
-        IPrintable printable = new MultiFunctionPrinter();
-        printable.Print();
     }
 }
