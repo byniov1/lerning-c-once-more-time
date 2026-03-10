@@ -1,5 +1,7 @@
 ﻿namespace Section_10___Structs;
 
+//Structs
+/*
 public struct Point
 {
     //Jest częstą praktyką że structs robi się immutable by declaring all fields as readonly and providing only get accessors for props
@@ -84,7 +86,7 @@ class Program
         Console.Write("P1: ");
         p1.Display();
 
-    }*/
+    }#1#
 
     //2
     /*private static void Main(string[] args)
@@ -94,7 +96,7 @@ class Program
         
         double distance = p1.DistanceTo(p2);
         Console.WriteLine($"Distance between points: {distance:F2}");
-    }*/
+    }#1#
     
     private static void Main(string[] args)
     {
@@ -129,9 +131,33 @@ class Program
         Console.WriteLine($"Distance between points: {distance:F2}");
     }
 }
+*/
 
 
+enum Day {Mo, Tu, We, Th, Fr, Sa, Su}
+enum Month {January = 1, February, March, April, May, Jun, July = 20, August, September, October, November, December}
+class Program
+{
+    static void Main(string[] args)
+    {
+        Day fr = Day.Fr;
+        Day Su = Day.Su;
 
+        Day a = Day.Fr;
+
+        Console.WriteLine($"Is fr == a {fr == a} this is fr {fr} and this is a {a}");
+
+        Console.WriteLine(Day.Mo);
+        Console.WriteLine((int)Day.Mo);
+        
+        
+        Console.WriteLine(Month.February);
+        Console.WriteLine((int)Month.February);
+        
+        Console.WriteLine(Month.August);
+        Console.WriteLine((int)Month.August);
+    }
+}
 
 
 
