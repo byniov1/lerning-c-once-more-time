@@ -194,7 +194,7 @@ class Program
 
 
 
-//5 Multicast delegate
+//5  Multicast delegate
 /*
 public delegate void LogHandler(string message);
 
@@ -299,12 +299,40 @@ internal class Program
 }
 */
 
-//Events
-class MyClass
+//6 - Events
+public delegate void Notify(string message);
+
+public class EventPublisher
+{
+    // The "On" prefix makes it immediately clear that the method
+    // is associated with an event.
+    //It signifies that the method is not just a regular method but
+    //one that is called when a specific event occurs.
+    public event Notify OnNotify;
+
+    public void RaiseEvent(string message)
+    {
+        OnNotify?.Invoke(message); //Invoke the event if there is anything
+    }
+}
+
+public class EventSubscriber
+{
+    public void OnEventRaisedMethod(string message)
+    {
+        Console.WriteLine("Event received " + message);
+    }
+}
+
+class Program
 {
     public static void Main(string[] args)
     {
+        EventPublisher publisher = new EventPublisher();
+        EventSubscriber subscriber = new EventSubscriber();
+        publisher.OnNotify += subscriber.OnEventRaisedMethod;
         
+        publisher.RaiseEvent("Hello World");
     }
 }
 
