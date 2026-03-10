@@ -250,7 +250,7 @@ class MyClass
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World!");
+        //Write example of garbage collector
     }
 }
 
