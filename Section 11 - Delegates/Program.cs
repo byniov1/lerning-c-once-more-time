@@ -195,6 +195,7 @@ class Program
 
 
 //5 Multicast delegate
+/*
 public delegate void LogHandler(string message);
 
 public class Logger
@@ -226,7 +227,7 @@ internal class Program
 
         //remove multicast
         /*logHandler -= logger.LogToFile;
-        logHandler("After removing LogToFile");*/
+        logHandler("After removing LogToFile");#1#
         
         // InvokeSafely(logHandler, "After removing LogToFile");
 
@@ -245,7 +246,7 @@ internal class Program
         //Usuńmy bezpiecznie
         //Zamiast dego
         /*logHandler -= logger.LogToFile;
-        logHandler("After removing LogToFile");*/
+        logHandler("After removing LogToFile");#1#
 
         if (IsMethodinDelegate(logHandler, logger.LogToFile))
         {
@@ -296,6 +297,7 @@ internal class Program
         return false;
     }
 }
+*/
 
 
 
