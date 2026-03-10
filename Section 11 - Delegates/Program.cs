@@ -299,6 +299,14 @@ internal class Program
 }
 */
 
+//Events
+class MyClass
+{
+    public static void Main(string[] args)
+    {
+        
+    }
+}
 
 
 
