@@ -104,6 +104,7 @@ internal class Program
 
 
 //Delagtes generic and classes
+/*
 public delegate int Comparision<T>(T x, T y);
 
 public class Person
@@ -138,5 +139,204 @@ public class PersonSorter
 class Program
 {
     static void Main(string[] args)
-    {}
+    {
+        Person[] people =
+        {
+            new Person { Age = 25, Name = "Bob" },
+            new Person { Age = 19, Name = "Alice" },
+            new Person { Age = 2, Name = "Zenon" },
+            new Person { Age = 30, Name = "Jill" },
+        };
+        foreach (var person in people)
+        {
+            Console.Write($"{person.Name} - {person.Age}   - ");
+        }
+
+        Console.WriteLine("");
+        
+        
+        PersonSorter sorter = new PersonSorter();
+        sorter.Sort(people, CompareByAge);
+
+        Console.WriteLine("\nUsing sorting by age");
+        foreach (var person in people)
+        {
+            Console.Write($"{person.Name} - {person.Age}   - ");
+        }
+
+        Console.WriteLine();
+        
+        
+        sorter.Sort(people, CompareByName);
+        Console.WriteLine("\nUsing sorting by Name");
+        foreach (var person in people)
+        {
+            Console.Write($"{person.Name} - {person.Age}   - ");
+        }
+        Console.WriteLine();
+        
+        
+        
+        
+    }
+
+    static int CompareByAge(Person x, Person y)
+    {
+        return x.Age.CompareTo(y.Age);
+    }
+
+    static int CompareByName(Person x, Person y)
+    {
+        return String.CompareOrdinal(x.Name, y.Name);
+    }
 }
+*/
+
+
+
+//5 Multicast delegate
+public delegate void LogHandler(string message);
+
+public class Logger
+{
+    public void LogToConsole(string message)
+    {
+        Console.WriteLine($"Console Log:  {message}");
+    }
+
+    public void LogToFile(string message)
+    {
+        Console.WriteLine($"File Log: {message}");
+    }
+}
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        var logger = new Logger();
+
+        //Creating multicast delegate
+        LogHandler logHandler = logger.LogToConsole;
+        // logHandler += logger.LogToFile;
+
+        // invoking a multicast delegate
+        logHandler("Hello World");
+
+
+        //remove multicast
+        /*logHandler -= logger.LogToFile;
+        logHandler("After removing LogToFile");*/
+        
+        // InvokeSafely(logHandler, "After removing LogToFile");
+
+        foreach (LogHandler handler in logHandler.GetInvocationList())
+        {
+            try
+            {
+                handler("Event occured with error handling");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception occured: " + e.Message);
+            }
+        }
+        
+        //Usuńmy bezpiecznie
+        //Zamiast dego
+        /*logHandler -= logger.LogToFile;
+        logHandler("After removing LogToFile");*/
+
+        if (IsMethodinDelegate(logHandler, logger.LogToFile))
+        {
+            logHandler -= logger.LogToFile;
+            Console.WriteLine("LogToFile method was removed");
+        }
+        else
+        {
+            Console.WriteLine("LogToFile method not found");
+        }
+        
+        InvokeSafely(logHandler, "After removing LogToFile");
+        
+        
+    }
+
+    static void InvokeSafely(LogHandler logHandler, string message)
+    {
+        LogHandler tempLogHandler = logHandler;
+        if (tempLogHandler != null)
+        {
+            tempLogHandler(message);
+        }
+    }
+
+    static bool IsMethodinDelegate(LogHandler logHandler, LogHandler method)
+    {
+        Console.WriteLine();
+        if (logHandler == null)
+        {
+            return false;
+        }
+
+       
+        //d is delegate
+        foreach (var d in logHandler.GetInvocationList())
+        {
+            Console.WriteLine($"Delegate: {d}");
+            Console.WriteLine($"Method: {method}");
+            if(d == (Delegate)method)
+            {
+                Console.WriteLine();
+                return true;
+            }
+        }
+        
+        Console.WriteLine();
+        return false;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
