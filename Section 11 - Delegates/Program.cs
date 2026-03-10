@@ -117,7 +117,7 @@ public class PersonSorter
 {
     public void Sort(Person[] people, Comparision<Person> comparision)
     {
-        for (int i = 0; i < people.Length - 1; i++)
+        for (int i=0; i < people.Length - 1; i++)
         {
             for (int j = i + 1; j < people.Length; j++)
             {
