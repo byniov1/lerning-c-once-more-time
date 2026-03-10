@@ -300,7 +300,7 @@ internal class Program
 */
 
 //6 - Events
-public delegate void Notify(string message);
+/*public delegate void Notify(string message);
 
 public class EventPublisher
 {
@@ -334,8 +334,14 @@ class Program
         
         publisher.RaiseEvent("Hello World");
     }
-}
+}*/
 
+//7 - Events - part 2 
+class Program
+{
+    static void Main(string[] args)
+    {}
+}
 
 
 
