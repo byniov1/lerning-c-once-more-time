@@ -1,4 +1,7 @@
-﻿namespace Section_10___Structs;
+﻿using System.Runtime.InteropServices.JavaScript;
+using Microsoft.VisualBasic.CompilerServices;
+
+namespace Section_10___Structs;
 
 //Structs
 /*
@@ -134,6 +137,8 @@ class Program
 */
 
 
+//Enums
+/*
 enum Day {Mo, Tu, We, Th, Fr, Sa, Su}
 enum Month {January = 1, February, March, April, May, Jun, July = 20, August, September, October, November, December}
 class Program
@@ -158,13 +163,96 @@ class Program
         Console.WriteLine((int)Month.August);
     }
 }
+*/
 
 
+//DateTime
+/*
+class Program
+{
+    static void Main(string[] args)
+    {
+        DateTime date = new DateTime(1988, 5, 31);
+        Console.WriteLine($"My birthday is {date}");
+
+        //Write today on screnn
+        Console.WriteLine($"Today is {DateTime.Today}");
+
+        //Write current time on screen
+        Console.WriteLine($"Today is {DateTime.Now}");
+
+        //Write tomorrow date
+        Console.WriteLine($"Tomorrow is {DateTime.Today.AddDays(1)}");
+
+        Console.WriteLine($"Today is {DateTime.Today.DayOfWeek}");
+
+        Console.WriteLine($"First day of the year 2020 was {GetFirstDayOfYear(2020)} and it was {GetFirstDayOfYear2(2020)}");
+     
+        
+        int days = DateTime.DaysInMonth(2000, 2);
+        Console.WriteLine($"Days in Frb 2000 was {days}");
+
+        DateTime now = DateTime.Now;
+        Console.WriteLine($"Now Minute is {now.Minute}");
+        
+        
+        DateTime now2 = DateTime.Now;
+        Console.WriteLine("Write a date in this format: yyyy-mm-dd");
+        string input = Console.ReadLine();
+        if (DateTime.TryParse(input, out DateTime dateTime))
+        {
+            Console.WriteLine(dateTime);
+            TimeSpan daysPassed = now.Subtract(dateTime); //dateTime.Subtract(now);
+            Console.WriteLine($"Time passed since {daysPassed.Days} ");
+        }
+        
+    }
 
 
+    static DateTime GetTommorow()
+    {
+        return DateTime.Today.AddDays(1);
+    }
 
+    static DateTime GetFirstDayOfYear(int year)
+    {
+        return new DateTime(year, 1, 1);
+    }
 
+    static DayOfWeek GetFirstDayOfYear2(int year)
+    {
+        return new DateTime(year, 1, 1).DayOfWeek;
+    }
 
+}
+*/
+
+//MathClass
+/*
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine($"Ceiling " + Math.Ceiling(15.3));
+
+        int num1 = 13;
+        int num2 = 5;
+        Console.WriteLine($"the lower of {num1} and {num2} is {Math.Min(num1, num2)}");
+        Console.WriteLine($"3 to the power of 5 is {Math.Pow(3, 5)}");
+        Console.WriteLine($"Always positive is {Math.Abs(-20)}");
+        Console.WriteLine($"cos of 1 is {Math.Cos(1)}");
+    }
+}
+*/
+
+//Garbage collection
+class MyClass
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Hello World!");
+    }
+}
 
 
 
