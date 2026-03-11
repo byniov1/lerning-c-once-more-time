@@ -337,10 +337,56 @@ class Program
 }*/
 
 //7 - Events - part 2 
+public delegate void TemperaturaChangeHandler(string message);
+
+public class TemperatureMonitor
+{
+    public event TemperaturaChangeHandler OnTemperatureChanged;
+    
+    private int _temperature;
+    public int Temperature
+    {
+        get { return _temperature;}
+        set
+        {
+            _temperature = value;
+            if (_temperature > 30)
+            {
+                RaiseTemperatureEvent("Temperatura is above treshold");
+            }
+        } 
+    }
+
+    protected virtual void RaiseTemperatureEvent(string message)
+    {
+        //Raise event
+        OnTemperatureChanged?.Invoke(message);
+    }
+    
+}
+
+public class TemperatureAllert
+{
+    public void OnTemperatureChanged(string message)
+    {
+        Console.WriteLine("Alert: " + message);
+    }
+}
+
 class Program
 {
     static void Main(string[] args)
-    {}
+    {
+        TemperatureMonitor monitor = new TemperatureMonitor();
+        TemperatureAllert alt = new TemperatureAllert();
+        monitor.OnTemperatureChanged += alt.OnTemperatureChanged;
+
+        Console.WriteLine("Temperature is 20");
+        monitor.Temperature = 20;
+
+        Console.Write("Please enter the temperature: ");
+        monitor.Temperature += int.Parse(Console.ReadLine());
+    }
 }
 
 
