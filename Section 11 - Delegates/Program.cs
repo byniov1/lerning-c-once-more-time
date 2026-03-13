@@ -337,6 +337,7 @@ class Program
 }*/
 
 //7 - Events - part 2 
+/*
 public delegate void TemperaturaChangeHandler(string message);
 
 public class TemperatureMonitor
@@ -388,9 +389,80 @@ class Program
         monitor.Temperature += int.Parse(Console.ReadLine());
     }
 }
+*/
 
 
 
+//Events - part 3 
+//using the generic delegate EventHandler<TEventArgs>
+// public delegate void TemperaturaChangeHandler(string message);
+
+public class TemperatureChangedEventArgs : EventArgs
+{
+    public int  Temperature { get; }
+
+    public TemperatureChangedEventArgs(int temperature)
+    {
+        Temperature = temperature;
+    }
+}
+
+public class TemperatureMonitor
+{
+    // public event EventHandler<>
+    
+    // public event TemperaturaChangeHandler OnTemperatureChanged;
+ 
+    public EventHandler<TemperatureChangedEventArgs> OnTemperatureChanged;
+    
+    private int _temperature;
+    public int Temperature
+    {
+        get { return _temperature;}
+        set
+        {
+            if (_temperature != value)
+            {
+                _temperature = value;
+                //Raise event 
+                RaiseTemperatureEvent(new TemperatureChangedEventArgs(_temperature));
+            }
+        } 
+    }
+
+    // protected virtual void RaiseTemperatureEvent(string message)
+    protected virtual void RaiseTemperatureEvent(TemperatureChangedEventArgs e)
+    {
+        //Raise event -> letting every subscriber know!
+        OnTemperatureChanged?.Invoke(this, e);
+    }
+    
+}
+
+//Subscriber
+public class TemperatureAlert
+{
+    public void OnTemperatureChanged(object sender, TemperatureChangedEventArgs e)
+    {
+        Console.WriteLine($"Alert: temperature: {e.Temperature} degrees, Sender is: {sender}" );
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        TemperatureMonitor monitor = new TemperatureMonitor();
+        TemperatureAlert alt = new TemperatureAlert();
+        monitor.OnTemperatureChanged += alt.OnTemperatureChanged;
+
+        Console.WriteLine("Temperature is 20");
+        monitor.Temperature = 20;
+
+        Console.Write("Please enter the temperature: ");
+        monitor.Temperature += int.Parse(Console.ReadLine());
+    }
+}
 
 
 
