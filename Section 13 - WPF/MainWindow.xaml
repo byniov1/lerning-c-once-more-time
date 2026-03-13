@@ -51,6 +51,7 @@
         </Grid.RowDefinitions>
         
         
+        
         <Label 
             Content="Title of the map" 
             Grid.Row="2" 
@@ -63,6 +64,7 @@
             Content="Sample text" 
             Grid.Row="1" 
             Grid.Column="2" 
+            Grid.ColumnSpan="3"
             HorizontalAlignment="Center" 
             VerticalAlignment="Center" 
         />
