@@ -31,7 +31,7 @@
     <!--         VerticalAlignment="Center"  -->
     <!--         /> -->
     <!-- </Grid> -->
-    <Grid ShowGridLines="True">
+    <Grid ShowGridLines="True" x:Name="MyGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
@@ -73,10 +73,10 @@
             Grid.Row="3"
             Grid.Column="2"
             /> 
-        <Button 
+        <!--<Button 
             Content="B" 
             Grid.Row="3"
             Grid.Column="4"
-        />
+        />-->
     </Grid>
 </Window>

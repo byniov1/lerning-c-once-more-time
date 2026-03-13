@@ -23,6 +23,15 @@ namespace Section_13___WPF
         public MainWindow()
         {
             InitializeComponent();
+
+            Button myButton = new Button();
+            myButton.Content = "B";
+            
+            Grid.SetRow(myButton, 3);
+            Grid.SetColumn(myButton, 4);
+            
+            Grid MyGrid = FindName("MyGrid") as Grid;
+            MyGrid.Children.Add(myButton);
         }
     }
 }
