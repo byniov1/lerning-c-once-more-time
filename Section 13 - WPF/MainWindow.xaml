@@ -72,6 +72,8 @@
             Content="A" 
             Grid.Row="3"
             Grid.Column="2"
+            FontSize="40"
+            
             /> 
         <!--<Button 
             Content="B" 
