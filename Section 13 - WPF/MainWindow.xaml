@@ -117,9 +117,11 @@
              <RowDefinition Height="10"/> 
          </Grid.RowDefinitions> 
          
+         <ScrollViewer Grid.Column="1" Grid.Row="1"  Background="Aquamarine" VerticalScrollBarVisibility="Auto">
+             <StackPanel Background="Pink"></StackPanel>
+         </ScrollViewer>
          
-         
-         <TextBox Grid.Column="1" Grid.Row="3"  Background="LightGray" Foreground="White"/>
+         <TextBox Grid.Column="1" Grid.Row="3"  Background="LightGray"/>
          
          <Button Grid.Column="1" Grid.Row="5" Content="Create TODO"/>
           
