@@ -7,6 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="Hello World" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <!-- <ColumnDefinition Width="auto" MaxWidth="200"/> -->
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        
+        
+        <Label 
+            Content="Hello World Hello World Hello Worl dHello World" 
+            Grid.Row="1" 
+            Grid.Column="1" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center" 
+            />
     </Grid>
 </Window>
