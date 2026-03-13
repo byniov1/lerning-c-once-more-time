@@ -95,27 +95,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Section_13___WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="ToDo App" 
+        Height="450" 
+        Width="400" 
+        ResizeMode="NoResize">
      
-     <Grid> 
+     <Grid ShowGridLines="True"> 
          <Grid.ColumnDefinitions> 
+             <ColumnDefinition Width="10"/> 
              <ColumnDefinition Width="*"/> 
-             <ColumnDefinition Width="auto" MaxWidth="200"/> 
-             <ColumnDefinition Width="*"/> 
-             <ColumnDefinition Width="*"/> 
+             <ColumnDefinition Width="10"/> 
          </Grid.ColumnDefinitions> 
           
          <Grid.RowDefinitions> 
+             <RowDefinition Height="10"/> 
              <RowDefinition Height="*"/> 
-             <RowDefinition Height="*"/> 
-             <RowDefinition Height="*"/> 
+             <RowDefinition Height="10"/> 
+             <RowDefinition Height="75"/> 
+             <RowDefinition Height="10"/> 
+             <RowDefinition Height="50"/> 
+             <RowDefinition Height="10"/> 
          </Grid.RowDefinitions> 
-          
+         
+         
+         
+         <TextBox Grid.Column="1" Grid.Row="3"  Background="LightGray" Foreground="White"/>
+         
+         <Button Grid.Column="1" Grid.Row="5" Content="Create TODO"/>
           
          <Label  
-             Content="Hello World Hello World Hello Worl dHello World"  
-             Grid.Row="1"  
+             Content="Hello World"  
              Grid.Column="1"  
+             Grid.Row="2"  
              HorizontalAlignment="Center"  
              VerticalAlignment="Center"  
              />
