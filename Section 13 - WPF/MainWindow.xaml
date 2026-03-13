@@ -72,9 +72,15 @@
             Content="A" 
             Grid.Row="3"
             Grid.Column="2"
-            FontSize="40"
-            
+            FontSize="35"
+            Click="Button_Click"
             /> 
+        
+        <!-- Eksperyment -->
+        <!--<Button Grid.Column="1" Grid.Row="1" >
+             <Button Grid.Column="2" Grid.Row="2">3</Button>
+        </Button>-->
+        
         <!--<Button 
             Content="B" 
             Grid.Row="3"

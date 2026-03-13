@@ -24,14 +24,20 @@ namespace Section_13___WPF
         {
             InitializeComponent();
 
-            Button myButton = new Button();
+            //1
+            /*Button myButton = new Button();
             myButton.Content = "B";
             
             Grid.SetRow(myButton, 3);
             Grid.SetColumn(myButton, 4);
             
             Grid MyGrid = FindName("MyGrid") as Grid;
-            MyGrid.Children.Add(myButton);
+            MyGrid.Children.Add(myButton);*/
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Hello World!");
         }
     }
 }
