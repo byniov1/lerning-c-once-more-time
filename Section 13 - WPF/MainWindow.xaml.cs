@@ -20,7 +20,8 @@ namespace Section_13___WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+       // 1
+        /*public MainWindow()
         {
             InitializeComponent();
 
@@ -32,12 +33,18 @@ namespace Section_13___WPF
             Grid.SetColumn(myButton, 4);
             
             Grid MyGrid = FindName("MyGrid") as Grid;
-            MyGrid.Children.Add(myButton);*/
+            MyGrid.Children.Add(myButton);#1#
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Hello World!");
+        }*/
+        
+        public MainWindow()
+        {
+            InitializeComponent();
         }
+
     }
 }
