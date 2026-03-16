@@ -55,8 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="InvoiceManagement.xaml" />
     <Page Include="InvoiceView.xaml" />
     <Page Include="LoginView.xaml" />
+    <Page Include="LoginViewManagement.xaml" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,10 +68,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Data\Person.cs" />
+    <Compile Include="InvoiceManagement.xaml.cs">
+      <DependentUpon>InvoiceManagement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InvoiceView.xaml.cs">
       <DependentUpon>InvoiceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoginView.xaml.cs" />
+    <Compile Include="LoginViewManagement.xaml.cs">
+      <DependentUpon>LoginViewManagement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
