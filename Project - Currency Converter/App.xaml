@@ -4,6 +4,24 @@
              xmlns:local="clr-namespace:Project___Currency_Converter"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="ButtonRound" TargetType="Button"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        
+            <Setter Property="Background" Value="AliceBlue"></Setter>
+        
+            <Setter Property="Foreground" Value="White"></Setter>
+        
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="5" Background="{TemplateBinding Background}" BorderThickness="0.5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
+    
 </Application>
+
