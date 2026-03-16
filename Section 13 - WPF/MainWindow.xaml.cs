@@ -40,10 +40,9 @@ namespace Section_13___WPF
         {
             MessageBox.Show("Hello World!");
         }*/
-
-        // public string TodoInput { get; set; }
         
-        public MainWindow()
+        //2
+        /*public MainWindow()
         {
             InitializeComponent();
         }
@@ -68,6 +67,12 @@ namespace Section_13___WPF
                 
                 TodoInput.Clear();
             }
+        }*/
+        
+        public MainWindow()
+        {
+            InitializeComponent();
         }
+        
     }
 }
