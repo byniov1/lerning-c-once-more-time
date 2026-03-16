@@ -146,8 +146,8 @@
         mc:Ignorable="d"
         Title="ToDo App" 
         Height="450" 
-        Width="800" 
-        ResizeMode="NoResize">
+        Width="400" 
+        ResizeMode="CanResize">
      
     <Grid ShowGridLines="True"> 
         <ContentControl x:Name = "MainContent"/>
