@@ -40,11 +40,32 @@ namespace Section_13___WPF
         {
             MessageBox.Show("Hello World!");
         }*/
+
+        // public string TodoInput { get; set; }
         
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        private void AddTodoButton_Click(object sender, RoutedEventArgs e)
+        {
+            string todoText = TodoInput.Text;
+
+            //Validation
+            if (!string.IsNullOrEmpty(todoText))
+            {
+                // TextBlock todoItem = new TextBlock();
+                // todoItem.Text = todoText;
+                TextBlock todoItem = new TextBlock
+                {
+                    Text = todoText,
+                };
+                
+                TodoList.Children.Add(todoItem);
+                
+                TodoInput.Clear();
+            }
+        }
     }
 }

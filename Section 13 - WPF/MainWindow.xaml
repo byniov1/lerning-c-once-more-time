@@ -118,12 +118,12 @@
          </Grid.RowDefinitions> 
          
          <ScrollViewer Grid.Column="1" Grid.Row="1"  Background="Aquamarine" VerticalScrollBarVisibility="Auto">
-             <StackPanel Background="Pink"></StackPanel>
+             <StackPanel x:Name="TodoList" Background="Pink"></StackPanel>
          </ScrollViewer>
          
-         <TextBox Grid.Column="1" Grid.Row="3"  Background="LightGray"/>
+         <TextBox Grid.Column="1" Grid.Row="3"  Background="LightGray" x:Name="TodoInput"/>
          
-         <Button Grid.Column="1" Grid.Row="5" Content="Create TODO"/>
+         <Button Grid.Column="1" Grid.Row="5" Content="Create TODO" Click="AddTodoButton_Click"/>
           
          <Label  
              Content="Hello World"  
