@@ -75,10 +75,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MainWindowForm.xaml" />
+    <Page Include="MainWindowListBox.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindowForm.xaml.cs">
       <DependentUpon>MainWindowForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindowListBox.xaml.cs">
+      <DependentUpon>MainWindowListBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
