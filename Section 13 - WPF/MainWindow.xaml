@@ -146,16 +146,18 @@
         mc:Ignorable="d"
         Title="ToDo App" 
         Height="450" 
-        Width="400" 
+        Width="800" 
         ResizeMode="NoResize">
      
     <Grid ShowGridLines="True"> 
-        <Grid.ColumnDefinitions> 
-            <ColumnDefinition Width="*"/> 
-        </Grid.ColumnDefinitions> 
-          
-        <Grid.RowDefinitions> 
-            <RowDefinition Height="*"/> 
-        </Grid.RowDefinitions> 
+        <!-- <Grid.ColumnDefinitions>  -->
+        <!--     <ColumnDefinition Width="*"/>  -->
+        <!-- </Grid.ColumnDefinitions>  -->
+        <!--    -->
+        <!-- <Grid.RowDefinitions>  -->
+        <!--     <RowDefinition Height="*"/>  -->
+        <!-- </Grid.RowDefinitions>  -->
+        
+        <ContentControl x:Name = "MainContent"/>
     </Grid>
 </Window>

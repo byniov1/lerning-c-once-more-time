@@ -72,6 +72,7 @@ namespace Section_13___WPF
         public MainWindow()
         {
             InitializeComponent();
+            // MainContent.Content = LoginView();
         }
         
     }
