@@ -21,5 +21,10 @@ namespace Section_13___WPF
         {
             InitializeComponent();
         }
+
+        private void LoginButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

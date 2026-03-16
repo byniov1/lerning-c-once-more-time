@@ -150,14 +150,6 @@
         ResizeMode="NoResize">
      
     <Grid ShowGridLines="True"> 
-        <!-- <Grid.ColumnDefinitions>  -->
-        <!--     <ColumnDefinition Width="*"/>  -->
-        <!-- </Grid.ColumnDefinitions>  -->
-        <!--    -->
-        <!-- <Grid.RowDefinitions>  -->
-        <!--     <RowDefinition Height="*"/>  -->
-        <!-- </Grid.RowDefinitions>  -->
-        
         <ContentControl x:Name = "MainContent"/>
     </Grid>
 </Window>
