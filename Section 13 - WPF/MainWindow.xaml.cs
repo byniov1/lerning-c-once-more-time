@@ -60,6 +60,8 @@ namespace Section_13___WPF
                 TextBlock todoItem = new TextBlock
                 {
                     Text = todoText,
+                    Margin = new Thickness(10),
+                    Foreground = new SolidColorBrush(Colors.Red),
                 };
                 
                 TodoList.Children.Add(todoItem);
