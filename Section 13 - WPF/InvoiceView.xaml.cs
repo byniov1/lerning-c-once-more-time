@@ -15,17 +15,11 @@ using System.Windows.Shapes;
 
 namespace Section_13___WPF
 {
-    public partial class LoginView: UserControl
+    public partial class InvoiceView: UserControl
     {
-        public LoginView()
+        public InvoiceView()
         {
             InitializeComponent();
-        }
-
-        private void LoginButton_Clicked(object sender, RoutedEventArgs e)
-        {
-            Window window = Window.GetWindow(this);
-            window.Content = new InvoiceView();
         }
     }
 }
