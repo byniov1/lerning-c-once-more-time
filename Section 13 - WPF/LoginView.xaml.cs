@@ -29,7 +29,7 @@ namespace Section_13___WPF
             // window.Content = new InvoiceView();
             // window.Content = new MainWindowForm();
             // window.Content = new MainWindowListBox();
-            window.Content = new InvoiceManagement();
+            window.Content = new LoginViewManagement();
         }
     }
 }
