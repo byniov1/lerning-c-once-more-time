@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,16 +24,37 @@ namespace Project___Currency_Converter
         public MainWindow()
         {
             InitializeComponent();
+
+            lblCurrency.Content = "Hello World";
+            BindCurrency();
+        }
+        
+        private void Convert_Click(object sender, RoutedEventArgs e)
+        {
+            lblCurrency.Content = "Hello Button Clicker";
         }
 
         private void Clear_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            lblCurrency.Content = "";
         }
 
-        private void Convert_Click(object sender, RoutedEventArgs e)
+        private void BindCurrency()
         {
-            throw new NotImplementedException();
+            DataTable dtCurrency = new DataTable();
+            dtCurrency.Columns.Add("Text");
+            dtCurrency.Columns.Add("Value");
+            
+            dtCurrency.Rows.Add("--SELECT--", 0);
+            dtCurrency.Rows.Add("INR", 1);
+            dtCurrency.Rows.Add("USD", 75);
+            dtCurrency.Rows.Add("EUR", 85);
+            dtCurrency.Rows.Add("SAR", 20);
+            dtCurrency.Rows.Add("POUND", 5);
+            dtCurrency.Rows.Add("DEM", 43);
+
+            cmbFromCurrency.ItemsSource = dtCurrency.DefaultView;
+            cmbFromCurrency.DisplayMemberPath = "Text";
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
