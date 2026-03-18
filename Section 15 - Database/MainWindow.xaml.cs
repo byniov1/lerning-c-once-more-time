@@ -32,13 +32,13 @@ namespace Section_15___Database
 
             string connectionString = ConfigurationManager.ConnectionStrings["Section_15___Database.Properties.Settings.testDBConnectionString"].ConnectionString; 
             sqlConnection = new SqlConnection(connectionString);
-            ShowZoos(sqlConnection);
+            ShowZoos();
 
             //"Data Source=localhost;Initial Catalog=Northwind;Integrated Security=True";
             //Data Source = NBAHIRNY; Initial Catalog = testDB; Integrated Security = True; Encrypt = True; Trust Server Certificate = True     testDBConnectionString
         }
 
-        private void ShowZoos(SqlConnection sqlConnection)
+        private void ShowZoos()
         {
             try
             {
@@ -92,9 +92,11 @@ namespace Section_15___Database
         {
             try
             {
-                string query = "SELECT * FROM Animal animal inner join ZooAnimal zooAnimal where animal.id = zooAnimal.id = @ZooId";
+                string query = "select * from Animal a inner join ZooAnimal " +
+                    "za on a.Id = za.AnimalId where za.ZooId = @ZooId";
 
                 SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                // the SqlDataAdapter can be imagined like an Interface to make Tables usable by C#-Objects
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
 
                 using (sqlDataAdapter)
@@ -106,15 +108,19 @@ namespace Section_15___Database
 
                     sqlDataAdapter.Fill(animalTable);
 
+                    //Which Information of the Table in DataTable should be shown in our ListBox?
                     listAssociatedAnimals.DisplayMemberPath = "Name";
+                    //Which Value should be delivered, when an Item from our ListBox is selected?
                     listAssociatedAnimals.SelectedValuePath = "Id";
+                    //The Reference to the Data the ListBox should populate
                     listAssociatedAnimals.ItemsSource = animalTable.DefaultView;
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(e.ToString());
             }
+
         }
 
         private void listZoos_SelectionChanged(object sender, SelectionChangedEventArgs e)
