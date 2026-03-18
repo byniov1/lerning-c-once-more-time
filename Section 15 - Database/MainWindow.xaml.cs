@@ -44,7 +44,7 @@ namespace Section_15___Database
             {
                 string query = "SELECT * FROM Zoo";
 
-
+                // the SqlDataAdapter can be imagined like an Interface to make Tables usable by C#-Objects
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, sqlConnection);
 
                 using (sqlDataAdapter)
@@ -85,6 +85,44 @@ namespace Section_15___Database
             //    }
 
             //    sqlDataReader.Close();
+        }
+
+
+        private void ShowAssociatedAnimals()
+        {
+            try
+            {
+                string query = "SELECT * FROM Animal animal inner join ZooAnimal zooAnimal where animal.id = zooAnimal.id = @ZooId";
+
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+
+                using (sqlDataAdapter)
+                {
+
+                    sqlCommand.Parameters.AddWithValue("@ZooId", listZoos.SelectedValue);
+
+                    DataTable animalTable = new DataTable();
+
+                    sqlDataAdapter.Fill(animalTable);
+
+                    listAssociatedAnimals.DisplayMemberPath = "Name";
+                    listAssociatedAnimals.SelectedValuePath = "Id";
+                    listAssociatedAnimals.ItemsSource = animalTable.DefaultView;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void listZoos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listZoos.SelectedValue != null)
+            {
+                ShowAssociatedAnimals();
+            }
         }
     }
 }
