@@ -30,9 +30,10 @@ namespace Section_15___Database
         {
             InitializeComponent();
 
-            string connectionString = ConfigurationManager.ConnectionStrings["Section_15___Database.Properties.Settings.testDBConnectionString"].ConnectionString; 
+            string connectionString = ConfigurationManager.ConnectionStrings["Section_15___Database.Properties.Settings.testDBConnectionString"].ConnectionString;
             sqlConnection = new SqlConnection(connectionString);
             ShowZoos();
+            ShowAllAnimals();
 
             //"Data Source=localhost;Initial Catalog=Northwind;Integrated Security=True";
             //Data Source = NBAHIRNY; Initial Catalog = testDB; Integrated Security = True; Encrypt = True; Trust Server Certificate = True     testDBConnectionString
@@ -72,7 +73,7 @@ namespace Section_15___Database
             {
                 MessageBox.Show(ex.ToString());
             }
-           
+
 
             //SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
             //    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
@@ -129,6 +130,33 @@ namespace Section_15___Database
             {
                 ShowAssociatedAnimals();
             }
+        }
+
+        private void ShowAllAnimals()
+        {
+            try
+            {
+                string query = "SELECT * FROM Animal";
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, sqlConnection);
+
+                using (sqlDataAdapter)
+                {
+                    DataTable animalTable = new DataTable();
+                    sqlDataAdapter.Fill(animalTable);
+                    //Which Information of the Table in DataTable should be shown in our ListBox?
+                    listAllAnimals.DisplayMemberPath = "Name";
+                    //Which Value should be delivered, when an Item from our ListBox is selected?
+                    listAllAnimals.SelectedValuePath = "Id";
+                    //The Reference to the Data the ListBox should populate
+                    listAllAnimals.ItemsSource = animalTable.DefaultView;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+
+           
         }
     }
 }
