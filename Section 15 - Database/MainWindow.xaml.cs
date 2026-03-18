@@ -158,5 +158,29 @@ namespace Section_15___Database
 
            
         }
+
+        private void DeleteZoo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string query = "delete from Zoo where id = @ZooId";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlConnection.Open();
+                sqlCommand.Parameters.AddWithValue("@ZooId", listZoos.SelectedValue);
+                sqlCommand.ExecuteScalar();
+                sqlConnection.Close();
+                ShowZoos();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+
+        }
+
     }
 }
