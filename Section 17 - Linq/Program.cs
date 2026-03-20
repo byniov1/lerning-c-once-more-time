@@ -6,13 +6,22 @@ internal class Program
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        int[] numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 5, 3, 2 };
+        
+        OddNumbers(numbers);
     }
 
     static void OddNumbers(int[] numbers)
     {
-        IEnumerable<int> oddNumbers = from number in numbers where number % 2 != 0 select number; 
-            // numbers.Where(n => n % 2 == 1);
+        Console.WriteLine("Odd Numbers");
+        IEnumerable<int> oddNumbers = from number in numbers where number % 2 != 0 select number;
+
+        Console.WriteLine(oddNumbers);
+
+        foreach (int number in oddNumbers)
+        {
+            Console.Write(number + " ");
+        }
     }
 
 }
