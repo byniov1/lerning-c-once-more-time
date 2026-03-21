@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System.Collections;
+using System.Collections.Immutable;
 
 namespace Section_17___Linq;
 
@@ -44,6 +45,19 @@ internal class Program
         // int universityId = int.Parse(Console.ReadLine()!);
         int universityId = Convert.ToInt16(Console.ReadLine()!);
         universityManager.allStudentsFromGivenUniversity(universityId);
+
+        int[] someInt = { 30, 12, 4, 3, 12, 9 };
+        IEnumerable<int> sortedInts = from i in someInt orderby i select i;
+        IEnumerable<int> reversedInts = sortedInts.Reverse();
+        
+
+        foreach (int i in reversedInts)
+        {
+            Console.WriteLine(i);
+        }
+        
+        IEnumerable<int> reversedSortedInts = from i in someInt orderby i descending select i;
+        
     }
 }
 
