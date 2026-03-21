@@ -240,13 +240,43 @@ internal class Program
                 Name = student.Element("Name")?.Value,
                 Age = student.Element("Age")?.Value,
                 University = student.Element("University")?.Value,
+                Semester = student.Element("Semester")?.Value,
             };
 
         foreach (var student in students)
         {
-            Console.WriteLine($"Student {student.Name} with age {student.Age} from University {student.University}");
+            Console.WriteLine($"Student {student.Name} with age {student.Age} from University {student.University} is in his/her {student.Semester}");
         }
 
 
+        Console.WriteLine("Students sorted by they age");
+
+        //1
+        // var studentsOrderedByAge = from student in studentsXdoc.Descendants("Student")
+        //     orderby student.Descendants("Age") //To jakoś inaczej trzeba
+        //     select new
+        //     {
+        //         Name = student.Element("Name")?.Value,
+        //         Age = student.Element("Age")?.Value,
+        //     };
+        //
+        // foreach (var student in studentsOrderedByAge)
+        // {
+        //     Console.WriteLine($"Student {student.Name} with age {student.Age} ");
+        // }
+        // Console.WriteLine("");
+
+        
+        //2
+        Console.WriteLine("Simple students sorted by they age");
+        var simpleStudentOrderByAge = from student in students
+            orderby student.Age
+            select student;
+        
+        foreach (var student in simpleStudentOrderByAge)
+        {
+            Console.WriteLine($"Student {student.Name} with age {student.Age} from University {student.University} ");
+        }
+        Console.WriteLine("");
     }
 }
