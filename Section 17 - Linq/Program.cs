@@ -29,17 +29,25 @@ namespace Section_17___Linq;
 
 }*/
 
-class Program
+internal class Program
 {
     public static void Main(string[] args)
     {
-        UniversityManager universityManager = new UniversityManager();
+        var universityManager = new UniversityManager();
         universityManager.MaleStudents();
         universityManager.FemaleStudents();
+        universityManager.SortStudentByAge();
+        universityManager.AllStudentsFromBeijningTech();
+
+
+        Console.Write("Write univeristy id: ");
+        // int universityId = int.Parse(Console.ReadLine()!);
+        int universityId = Convert.ToInt16(Console.ReadLine()!);
+        universityManager.allStudentsFromGivenUniversity(universityId);
     }
 }
 
-class UniversityManager
+internal class UniversityManager
 {
     public List<University> universities;
     public List<Student> students;
@@ -67,10 +75,7 @@ class UniversityManager
         Console.WriteLine("Male Students");
         IEnumerable<Student> maleStudents = from student in students where student.Gender == "male" select student;
 
-        foreach (Student student in maleStudents)
-        {
-            student.Print();
-        }
+        foreach (var student in maleStudents) student.Print();
 
         Console.WriteLine("");
     }
@@ -80,10 +85,7 @@ class UniversityManager
         Console.WriteLine("Female Students");
         IEnumerable<Student> femaleStudents = from student in students where student.Gender == "female" select student;
 
-        foreach (Student femaleStudent in femaleStudents)
-        {
-            femaleStudent.Print();
-        }
+        foreach (var femaleStudent in femaleStudents) femaleStudent.Print();
 
         Console.WriteLine("");
     }
@@ -93,21 +95,43 @@ class UniversityManager
         Console.WriteLine("Students ordered by age");
         IOrderedEnumerable<Student> sortedStudents = from student in students orderby student.Age select student;
 
-        foreach (Student student in sortedStudents)
-        {
-            student.Print();
-        }
+        foreach (var student in sortedStudents) student.Print();
 
         Console.WriteLine("");
     }
 
     public void AllStudentsFromBeijningTech()
     {
+        Console.WriteLine("Students from Beijing Tech");
         
-        // IEnumerable<Student> 
         IEnumerable<Student> bjtStudents = from student in students
-            join university in universities on student.UniversityId equals university.Id 
-            where university.Name == "Beijing Tech" select student;
+            join university in universities on student.UniversityId equals university.Id
+            where university.Name == "Beijing Tech"
+            select student;
+
+        foreach (Student student in bjtStudents)
+        {
+            student.Print();
+        }
+        Console.WriteLine("");
+    }
+
+    public void allStudentsFromGivenUniversity(int universityId)
+    {
+        Console.WriteLine($"All students from university Id: {universityId}");
+        
+        IEnumerable<Student> studentdFromGivenUniversity = from student in students
+            join university in universities on student.UniversityId equals university.Id
+            where university.Id == universityId
+            select student;
+
+
+        foreach (Student student in studentdFromGivenUniversity)
+        {
+            student.Print();
+        }
+        
+        Console.WriteLine("");
     }
 }
 
