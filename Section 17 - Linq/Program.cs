@@ -147,6 +147,25 @@ internal class UniversityManager
         
         Console.WriteLine("");
     }
+
+    public void StudentsAndUnviersityCollection()
+    {
+        var newCollection = from student in students
+            join university in universities on student.UniversityId equals university.Id
+            orderby student.Name
+            select new
+            {
+                StudentName = student.Name,
+                UniversityName = university.Name
+            };
+
+        Console.WriteLine("New Collection:");
+        foreach (var col in newCollection)
+        {
+            Console.WriteLine($"Student {col.StudentName} from University {col.UniversityName}");
+        }
+    }
+    
 }
 
 internal class University
