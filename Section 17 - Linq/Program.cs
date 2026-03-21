@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Collections;
+
 namespace Section_17___Linq;
 
 //1
@@ -34,7 +36,6 @@ class Program
         UniversityManager universityManager = new UniversityManager();
         universityManager.MaleStudents();
         universityManager.FemaleStudents();
-        
     }
 }
 
@@ -45,10 +46,9 @@ class UniversityManager
 
     public UniversityManager()
     {
-        
         universities = new List<University>();
         students = new List<Student>();
-        
+
         //Let's add some Universities
         universities.Add(new University { Id = 1, Name = "Yale" });
         universities.Add(new University { Id = 2, Name = "Beijing Tech" });
@@ -84,8 +84,30 @@ class UniversityManager
         {
             femaleStudent.Print();
         }
-        
+
         Console.WriteLine("");
+    }
+
+    public void SortStudentByAge()
+    {
+        Console.WriteLine("Students ordered by age");
+        IOrderedEnumerable<Student> sortedStudents = from student in students orderby student.Age select student;
+
+        foreach (Student student in sortedStudents)
+        {
+            student.Print();
+        }
+
+        Console.WriteLine("");
+    }
+
+    public void AllStudentsFromBeijningTech()
+    {
+        
+        // IEnumerable<Student> 
+        IEnumerable<Student> bjtStudents = from student in students
+            join university in universities on student.UniversityId equals university.Id 
+            where university.Name == "Beijing Tech" select student;
     }
 }
 
