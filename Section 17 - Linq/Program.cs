@@ -2,6 +2,7 @@
 
 using System.Collections;
 using System.Collections.Immutable;
+using System.Xml.Linq;
 
 namespace Section_17___Linq;
 
@@ -30,6 +31,8 @@ namespace Section_17___Linq;
 
 }*/
 
+//2
+/*
 internal class Program
 {
     public static void Main(string[] args)
@@ -49,15 +52,15 @@ internal class Program
         int[] someInt = { 30, 12, 4, 3, 12, 9 };
         IEnumerable<int> sortedInts = from i in someInt orderby i select i;
         IEnumerable<int> reversedInts = sortedInts.Reverse();
-        
+
 
         foreach (int i in reversedInts)
         {
             Console.WriteLine(i);
         }
-        
+
         IEnumerable<int> reversedSortedInts = from i in someInt orderby i descending select i;
-        
+
     }
 }
 
@@ -117,7 +120,7 @@ internal class UniversityManager
     public void AllStudentsFromBeijningTech()
     {
         Console.WriteLine("Students from Beijing Tech");
-        
+
         IEnumerable<Student> bjtStudents = from student in students
             join university in universities on student.UniversityId equals university.Id
             where university.Name == "Beijing Tech"
@@ -133,7 +136,7 @@ internal class UniversityManager
     public void allStudentsFromGivenUniversity(int universityId)
     {
         Console.WriteLine($"All students from university Id: {universityId}");
-        
+
         IEnumerable<Student> studentdFromGivenUniversity = from student in students
             join university in universities on student.UniversityId equals university.Id
             where university.Id == universityId
@@ -144,7 +147,7 @@ internal class UniversityManager
         {
             student.Print();
         }
-        
+
         Console.WriteLine("");
     }
 
@@ -165,7 +168,7 @@ internal class UniversityManager
             Console.WriteLine($"Student {col.StudentName} from University {col.UniversityName}");
         }
     }
-    
+
 }
 
 internal class University
@@ -193,5 +196,57 @@ internal class Student
     {
         Console.WriteLine("Student {0} with id {1} Gender {2} and Age {3} from Unviersity with the Id {4}", Name, Id,
             Gender, Age, UniversityId);
+    }
+}*/
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        //We simply apply our Student-Structure to XML. 
+        var studentsXML = @"<Students>
+                            <Student>
+                                <Name>Toni</Name>
+                                <Age>21</Age>
+                                <University>Yale</University>
+                                <Semester>6</Semester>
+                            </Student>
+                            <Student>
+                                <Name>Carla</Name>
+                                <Age>17</Age>
+                                <University>Yale</University>
+                                <Semester>1</Semester>
+                            </Student>
+                            <Student>
+                                <Name>Leyla</Name>
+                                <Age>19</Age>
+                                <University>Beijing Tech</University>
+                                <Semester>3</Semester>
+                            </Student>
+                            <Student>
+                                <Name>Frank</Name>
+                                <Age>25</Age>
+                                <University>Beijing Tech</University>
+                                <Semester>10</Semester>
+                            </Student>
+                        </Students>";
+
+        XDocument studentsXdoc = new XDocument();
+        studentsXdoc = XDocument.Parse(studentsXML);
+
+        var students = from student in studentsXdoc.Descendants("Student")
+            select new
+            {
+                Name = student.Element("Name")?.Value,
+                Age = student.Element("Age")?.Value,
+                University = student.Element("University")?.Value,
+            };
+
+        foreach (var student in students)
+        {
+            Console.WriteLine($"Student {student.Name} with age {student.Age} from University {student.University}");
+        }
+
+
     }
 }
