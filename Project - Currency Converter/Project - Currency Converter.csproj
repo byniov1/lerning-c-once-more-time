@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DD934B87-2B2C-4D46-A3DB-2E29F51019F1}</ProjectGuid>
+    <ProjectGuid>{18C0466E-C8B7-405B-A102-0204B99977C3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Section_13___WPF</RootNamespace>
-    <AssemblyName>Section 13 - WPF</AssemblyName>
+    <RootNamespace>Project___Currency_Converter</RootNamespace>
+    <AssemblyName>Project - Currency Converter</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
+      <HintPath>packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -56,10 +59,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="InvoiceManagement.xaml" />
-    <Page Include="InvoiceView.xaml" />
-    <Page Include="LoginView.xaml" />
-    <Page Include="LoginViewManagement.xaml" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -68,31 +67,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Data\Person.cs" />
-    <Compile Include="InvoiceManagement.xaml.cs">
-      <DependentUpon>InvoiceManagement.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="InvoiceView.xaml.cs">
-      <DependentUpon>InvoiceView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="LoginView.xaml.cs" />
-    <Compile Include="LoginViewManagement.xaml.cs">
-      <DependentUpon>LoginViewManagement.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MainWindowForm.xaml" />
-    <Page Include="MainWindowListBox.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainWindowForm.xaml.cs">
-      <DependentUpon>MainWindowForm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainWindowListBox.xaml.cs">
-      <DependentUpon>MainWindowListBox.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -110,6 +90,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

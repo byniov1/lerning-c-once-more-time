@@ -41,10 +41,40 @@ namespace Section_13___WPF
             MessageBox.Show("Hello World!");
         }*/
         
-        public MainWindow()
+        //2
+        /*public MainWindow()
         {
             InitializeComponent();
         }
 
+        private void AddTodoButton_Click(object sender, RoutedEventArgs e)
+        {
+            string todoText = TodoInput.Text;
+
+            //Validation
+            if (!string.IsNullOrEmpty(todoText))
+            {
+                // TextBlock todoItem = new TextBlock();
+                // todoItem.Text = todoText;
+                TextBlock todoItem = new TextBlock
+                {
+                    Text = todoText,
+                    Margin = new Thickness(10),
+                    Foreground = new SolidColorBrush(Colors.Red),
+                };
+                
+                TodoList.Children.Add(todoItem);
+                
+                TodoInput.Clear();
+            }
+        }*/
+        
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            MainContent.Content = new LoginView();
+        }
+        
     }
 }
