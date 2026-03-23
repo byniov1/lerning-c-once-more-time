@@ -4,7 +4,7 @@ using Microsoft.VisualBasic.CompilerServices;
 namespace Section_10___Structs;
 
 //Structs
-/*
+
 public struct Point
 {
     //Jest częstą praktyką że structs robi się immutable by declaring all fields as readonly and providing only get accessors for props
@@ -59,24 +59,24 @@ public class PointClass
 class Program
 {
     //1
-    /*static void Main(string[] args)
+    static void Main(string[] args)
     {
         Console.Write("P0: ");
         Point p0 = new Point();
         p0.Display();
-        
-        
+
+
         Console.Write("P1: ");
         Point p1 = new Point(1, 1);
         p1.Display();
-       
-        
+
+
         Console.Write("P2: ");
         //Do tego potrzebujemy fileds nie props
         Point p2;
-        p2.X = 10;
-        p2.Y = 20;
-        p2.Display();
+        // p2.X = 10;
+        // p2.Y = 20;
+        // p2.Display();
 
         //Tutaj widać że jest podawany value a nie reference
         Console.Write("P3: ");
@@ -84,14 +84,15 @@ class Program
         p3.X = 50;
         p3.Y = 100;
         p3.Display();
-        
-        
+
+
         Console.Write("P1: ");
         p1.Display();
 
-    }#1#
+    }
+}
 
-    //2
+//2
     /*private static void Main(string[] args)
     {
         Point p1 = new Point(1, 2);
@@ -134,7 +135,7 @@ class Program
         Console.WriteLine($"Distance between points: {distance:F2}");
     }
 }
-*/
+
 
 
 //Enums
@@ -246,13 +247,13 @@ class Program
 */
 
 //Garbage collection
-class MyClass
-{
-    static void Main(string[] args)
-    {
-        //Write example of garbage collector
-    }
-}
+// class MyClass
+// {
+//     static void Main(string[] args)
+//     {
+//         //Write example of garbage collector
+//     }
+// }
 
 
 
