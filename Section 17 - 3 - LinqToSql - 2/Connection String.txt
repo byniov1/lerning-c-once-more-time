@@ -1,0 +1,4 @@
+Connection String
+Data Source=NBAHIRNY2;Initial Catalog=LearningC#DB;Integrated Security=True;Pooling=False;Encrypt=True;Trust Server Certificate=True
+
+LearningC_DBConnectionString
