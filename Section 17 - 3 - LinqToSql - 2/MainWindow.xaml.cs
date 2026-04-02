@@ -85,5 +85,27 @@ namespace Section_17___3___LinqToSql___2
             MainDataGrid.ItemsSource = dataContext.Students;
 
         }
+
+
+        public void InsertStudentLectureAssociations()
+        {
+            Student Carla = dataContext.Students.First(student => student.Name.Equals("Carla"));
+            Student Toni = dataContext.Students.First(student => student.Name.Equals("Toni"));
+            Student Leyle = dataContext.Students.First(student => student.Name.Equals("Leyle"));
+            Student Jame = dataContext.Students.First(student => student.Name.Equals("Jame"));
+
+            Lecture Math = dataContext.Lectures.First(lecture => lecture.Name.Equals("Math"));
+            Lecture History = dataContext.Lectures.First(lecture => lecture.Name.Equals("History"));
+
+            dataContext.StudentLectures.InsertOnSubmit(new StudentLecture { Student = Carla, Lecture = Math });
+            dataContext.StudentLectures.InsertOnSubmit(new StudentLecture { Student = Toni, Lecture = Math });
+
+
+            StudentLecture slToni = new StudentLecture();
+            slToni.Student = Toni;
+            //slToni.StudentId = Toni.Id;
+            slToni.LectureId = History.Id;
+            dataContext.StudentLectures.InsertOnSubmit(slToni);
+        }
     }
 }
