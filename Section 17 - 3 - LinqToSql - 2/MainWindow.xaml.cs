@@ -151,5 +151,33 @@ namespace Section_17___3___LinqToSql___2
 
             MainDataGrid.ItemsSource = transgengerStudents;
         }
+
+        public void GetAllLecturesFromBeijningTech()
+        {
+            var lecturesFromBejingTech = from sl in dataContext.StudentLectures
+                                         join student in dataContext.Students
+                                         on sl.StudentId equals student.Id
+                                         where student.University.Name == "Beijing Tech"
+                                         select sl.Lecture;
+
+            MainDataGrid.ItemsSource = lecturesFromBejingTech;
+            
+        }
+
+        public void UpdateToni()
+        {
+            //var Toni = from student in dataContext.Students where student.Name == "Toni" select student;
+            var Toni = dataContext.Students.FirstOrDefault(student => student.Name.Equals("Toni"));
+
+            Toni.Name = "Antonio";
+            dataContext.SubmitChanges();
+
+            MainDataGrid.ItemsSource = dataContext.Students;
+
+            //dataContext.Students 
+
+        }
+
+
     }
 }
