@@ -183,11 +183,15 @@ namespace Section_17___3___LinqToSql___2
             dataContext.Students.DeleteOnSubmit(Jame);
         }
 
-        //public void InsertStudent()
-        //{
+        public void InsertStudent()
+        {
+            University Yale = dataContext.Universities.FirstOrDefault(university => university.Name.Equals("Yale"));
 
-        //    var student = new Student() { Name = "James", UniversityId = 1, }
-        //}
+            var James = new Student() { Name = "James", University = Yale };
+            //List<Student> newStudents = new List<Student>();
+            //newStudents.Add(James);
+            dataContext.Students.InsertOnSubmit(James);
+        }
 
 
     }
