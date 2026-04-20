@@ -34,7 +34,8 @@ namespace Section_17___3___LinqToSql___2
 
 
             //InsertUniveristies();
-            InsertStudents();
+            //InsertStudents();
+            InsertLectures();
         }
 
         public void InsertUniveristies()
@@ -73,6 +74,16 @@ namespace Section_17___3___LinqToSql___2
             dataContext.SubmitChanges();
 
             MainDataGrid.ItemsSource = dataContext.Students;
+        }
+
+        public void InsertLectures()
+        {
+            dataContext.Lectures.InsertOnSubmit(new Lecture { Name = "Math" });
+            dataContext.Lectures.InsertOnSubmit(new Lecture { Name = "History" });
+
+            dataContext.SubmitChanges();
+            MainDataGrid.ItemsSource = dataContext.Students;
+
         }
     }
 }
