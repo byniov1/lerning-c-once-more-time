@@ -31,6 +31,40 @@ namespace Section_17___3___LinqToSql___2
             string connectionString = ConfigurationManager.ConnectionStrings["Section_17___3___LinqToSql___2.Properties.Settings.LearningC_DBConnectionString"].ConnectionString;
 
             dataContext = new LinqToSqlDataClassesDataContext(connectionString);
+
+
+            InsertUniveristies();
+        }
+
+        public void InsertUniveristies()
+        {
+            dataContext.ExecuteCommand("delete from University");
+
+            University yale = new University();
+            yale.Name = "Yale";
+            dataContext.Universities.InsertOnSubmit(yale);
+
+
+            University beijingTech = new University();
+            beijingTech.Name = "beijingTech";
+            dataContext.Universities.InsertOnSubmit(beijingTech);
+
+            dataContext.SubmitChanges();
+
+            MainDataGrid.ItemsSource = dataContext.Universities.ToList();
+        }
+
+        public void InsertStudents()
+        {
+            dataContext.ExecuteCommand("delete from Studet");
+
+            University yale = dataContext.Universities.First(university => university.Name.Equals("Yale"));
+            //"from university in dataContext.University where university == "Yale" select university"
+
+            Student roger = new Student();
+            roger.University = yale;
+            roger.Name = "Roger";
+            roger.GENDER = "Male";
         }
     }
 }
