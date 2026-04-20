@@ -33,7 +33,8 @@ namespace Section_17___3___LinqToSql___2
             dataContext = new LinqToSqlDataClassesDataContext(connectionString);
 
 
-            InsertUniveristies();
+            //InsertUniveristies();
+            InsertStudents();
         }
 
         public void InsertUniveristies()
@@ -56,15 +57,22 @@ namespace Section_17___3___LinqToSql___2
 
         public void InsertStudents()
         {
-            dataContext.ExecuteCommand("delete from Studet");
+            //dataContext.ExecuteCommand("delete from Student");
 
             University yale = dataContext.Universities.First(university => university.Name.Equals("Yale"));
+            University beijingTech = dataContext.Universities.First(university => university.Name.Equals("beijingTech"));
             //"from university in dataContext.University where university == "Yale" select university"
 
-            Student roger = new Student();
-            roger.University = yale;
-            roger.Name = "Roger";
-            roger.GENDER = "Male";
+            List<Student> students = new List<Student>();
+            students.Add(new Student { Name = "Carla", GENDER = "female", UniversityId = yale.Id });
+            students.Add(new Student { Name = "Toni", GENDER = "male", University = yale });
+            students.Add(new Student { Name = "Leyle", GENDER = "female", University = beijingTech });
+            students.Add(new Student { Name = "Jame", GENDER = "trans-gender", University = beijingTech });
+
+            dataContext.Students.InsertAllOnSubmit<Student>(students);
+            dataContext.SubmitChanges();
+
+            MainDataGrid.ItemsSource = dataContext.Students;
         }
     }
 }
