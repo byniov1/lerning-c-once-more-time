@@ -191,6 +191,7 @@ namespace Section_17___3___LinqToSql___2
             //List<Student> newStudents = new List<Student>();
             //newStudents.Add(James);
             dataContext.Students.InsertOnSubmit(James);
+            dataContext.SubmitChanges(); // i've would forogt about this line
         }
 
 
