@@ -175,8 +175,19 @@ namespace Section_17___3___LinqToSql___2
             MainDataGrid.ItemsSource = dataContext.Students;
 
             //dataContext.Students 
-
         }
+
+        public void DeleteJame()
+        {
+            Student Jame = dataContext.Students.FirstOrDefault(student => student.Name.Equals("Jame"));
+            dataContext.Students.DeleteOnSubmit(Jame);
+        }
+
+        //public void InsertStudent()
+        //{
+
+        //    var student = new Student() { Name = "James", UniversityId = 1, }
+        //}
 
 
     }
