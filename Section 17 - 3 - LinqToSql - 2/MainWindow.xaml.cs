@@ -120,5 +120,36 @@ namespace Section_17___3___LinqToSql___2
 
             MainDataGrid.ItemsSource = univeristies;
         }
+
+
+        public void GetLecturesFromToni()
+        {
+            Student Toni = dataContext.Students.First(student => student.Name.Equals("Toni"));
+
+            var tonisLectures = from studentLectures in Toni.StudentLectures select studentLectures.Lecture;
+
+            MainDataGrid.ItemsSource = tonisLectures;
+        }
+
+        public void GerAllStudentsFromYale()
+        {
+            var studentFromYale = from student in dataContext.Students 
+                                  where student.University.Name == "Yale" 
+                                  select student;
+
+
+            MainDataGrid.ItemsSource = studentFromYale;
+        }
+
+        public void GetAllUniversitiesWithTransgenders()
+        {
+            var transgengerStudents = from student in dataContext.Students
+                                      join univeristy in dataContext.Universities
+                                      on student.University equals univeristy
+                                      where student.GENDER == "trans-gender"
+                                      select univeristy;
+
+            MainDataGrid.ItemsSource = transgengerStudents;
+        }
     }
 }
