@@ -107,5 +107,18 @@ namespace Section_17___3___LinqToSql___2
             slToni.LectureId = History.Id;
             dataContext.StudentLectures.InsertOnSubmit(slToni);
         }
+
+        public void GetUniversityOfToni()
+        {
+            Student Toni = dataContext.Students.First(student => student.Name.Equals("Toni"));
+            University TonisUniversity = Toni.University;
+
+            Console.WriteLine("Tonis Univeristy is " + TonisUniversity.Name);
+
+            List<University> univeristies = new List<University>();
+            univeristies.Add(TonisUniversity);
+
+            MainDataGrid.ItemsSource = univeristies;
+        }
     }
 }
